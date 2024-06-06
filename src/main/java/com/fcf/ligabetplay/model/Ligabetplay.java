@@ -72,8 +72,6 @@ public static void registrarFecha(Scanner sc, String fecha) {
     System.out.println("Partido registrado correctamente.");
 }
     
-   
-         
 
   /*   public static void listarEquipos() {
         System.out.println("Equipos Registrados:");
@@ -211,9 +209,9 @@ public static void registrarFecha(Scanner sc, String fecha) {
     }
     
     public static void mostrarTablaPosiciones() {
-        System.out.printf("%-20s %5s %5s %5s %5s %5s %5s %5s%n", "NOMBRE DEL EQUIPO", "PJ", "PG", "PP", "PE", "GF", "GC", "TP");
+        System.out.printf("%-25s %5s %5s %5s %5s %5s %5s %5s%n", "NOMBRE DEL EQUIPO", "PJ", "PG", "PP", "PE", "GF", "GC", "TP");
         for (Equipo equipo : equipos) {
-            System.out.printf("%-20s %5d %5d %5d %5d %5d %5d %5d%n", equipo.getNombre(), equipo.getPJ(), equipo.getPG(), equipo.getPP(), equipo.getPE(), equipo.getGF(), equipo.getGC(), equipo.getTP());
+            System.out.printf("%-25s %5d %5d %5d %5d %5d %5d %5d%n", equipo.getNombre(), equipo.getPJ(), equipo.getPG(), equipo.getPP(), equipo.getPE(), equipo.getGF(), equipo.getGC(), equipo.getTP());
         }
     }
 }
