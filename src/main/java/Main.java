@@ -1,8 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
 import com.fcf.ligabetplay.model.Ligabetplay;
 import java.util.Scanner;
 
@@ -11,6 +6,7 @@ public class Main {
           Scanner sc = new Scanner(System.in);
           int opc;
           
+
           //Creacion del menu
           do{
               System.out.println(" >>>>>>>>>>>>>> Menu <<<<<<<<<<<<<<<<<<");
@@ -30,7 +26,7 @@ public class Main {
                   case 2 -> Ligabetplay.registroPlantel(sc);
                   case 3 -> Ligabetplay.registrarFechas(sc);
                   case 4 -> Ligabetplay.generarReportes();
-                  case 5 -> Ligabetplay.mostrarPlantillaEquipo();  
+             //     case 5 -> Ligabetplay.mostrarPlantillaEquipo();  
                   case 6 -> System.out.println("Finalizando Programa");
                   default -> System.out.println("Seleccione una opcion valida");
               }

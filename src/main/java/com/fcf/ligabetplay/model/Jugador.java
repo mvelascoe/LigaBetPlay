@@ -76,4 +76,12 @@ public class Jugador extends PlantelDeportivo{
         this.tarjetasAmarillas = tarjetasAmarillas;
     }
 
+    public void incrementarTarjetasAmarillas() {
+        ++this.tarjetasAmarillas;
+     }
+  
+     public void incrementarTarjetasRojas() {
+        ++this.tarjetasRojas;
+     }
+
 }

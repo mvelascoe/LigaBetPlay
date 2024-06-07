@@ -195,6 +195,7 @@ public class Ligabetplay {
         int localIndex = sc.nextInt();
         Equipo local = equipos.get(localIndex - 1);
 
+
         System.out.print("Seleccione el numero del equipo visitante: ");
         int visitanteIndex = sc.nextInt();
         Equipo visitante = equipos.get(visitanteIndex - 1);
@@ -202,9 +203,23 @@ public class Ligabetplay {
         System.out.print("Ingrese los goles del equipo local: ");
         int golesLocal = sc.nextInt();
 
+        System.out.println("El equipo local tuvo alguna tarjeta o penalización (y/n)?");
+        sc.nextLine();
+        String tienePenalizacionLocal = sc.nextLine();
+        if (tienePenalizacionLocal.equalsIgnoreCase("y")) {
+            registrarTarjetas(sc, local);
+        }
+
         System.out.print("Ingrese los goles del equipo visitante: ");
         int golesVisitante = sc.nextInt();
         sc.nextLine();
+
+        System.out.println("El equipo visitante tuvo alguna penalizacion (y/n)");
+        sc.nextLine();
+        String tienePenalizacionVisitante = sc.nextLine();
+        if (tienePenalizacionVisitante.equalsIgnoreCase("y")){
+            registrarTarjetas(sc, visitante);
+        }
 
         local.updateStats(golesLocal, golesVisitante);
         visitante.updateStats(golesVisitante, golesLocal);
@@ -214,6 +229,51 @@ public class Ligabetplay {
 
         System.out.println("Partido registrado correctamente.");
     }
+
+
+//Registro de tarjetas
+
+public static void registrarTarjetas(Scanner sc, Equipo equipo) {
+    System.out.println("Jugadores del equipo " + equipo.getNombre() + ":");
+    int i = 1;
+    for (Jugador jugador : equipo.getJugadores()) {
+        System.out.println(i + ". " + jugador.getNombre() + " " + jugador.getApellidos());
+        i++;
+    }
+
+    String control = "y";
+    while (control.equalsIgnoreCase("y")) {
+        System.out.print("Seleccione el número del jugador al que desea asignar una tarjeta: ");
+        int jugadorIndex = sc.nextInt() - 1;
+        sc.nextLine();
+
+        if (jugadorIndex >= 0 && jugadorIndex < equipo.getJugadores().size()) {
+            Jugador jugador = equipo.getJugadores().get(jugadorIndex);
+
+            System.out.print("Ingrese el color de la tarjeta (A para amarilla, R para roja): ");
+            char tarjeta = sc.nextLine().toUpperCase().charAt(0);
+
+            if (tarjeta == 'A') {
+                jugador.incrementarTarjetasAmarillas();
+            } else if (tarjeta == 'R') {
+                jugador.incrementarTarjetasRojas();
+            } else {
+                System.out.println("Color de tarjeta no válido. Inténtelo de nuevo.");
+                continue;
+            }
+
+            System.out.println("Tarjeta asignada al jugador " + jugador.getNombre() + " " + jugador.getApellidos() + ".");
+        } else {
+            System.out.println("Número de jugador no válido. Inténtelo de nuevo.");
+        }
+
+        System.out.print("¿Desea asignar otra tarjeta a un jugador? (y/n): ");
+        control = sc.nextLine();
+    }
+
+    System.out.println("Registro de tarjetas cmpletado");
+}
+
 
 
 //Seccion Reportes Menu 
@@ -345,12 +405,12 @@ public class Ligabetplay {
 
 // Muestra la plantilla completa de un equipo -  Falta terminar
 
-    public static void mostrarPlantillaEquipo() {
+/*    public static void mostrarPlantillaEquipo() {
         listarEquipos();
         Scanner sc = new Scanner(System.in);
-        System.out.print("Seleccione el equipo del cual desea ver la plantilla: ")  
+        System.out.print("Seleccione el equipo del cual desea ver la plantilla: ")
 
-}
+}*/
      
 }
  
