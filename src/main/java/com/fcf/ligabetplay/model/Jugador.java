@@ -21,9 +21,9 @@ public class Jugador extends PlantelDeportivo{
         this.dorsal = dorsal;
         this.posicionJuego = posicionJuego;
         this.fechaIngreso = fechaIngreso;
-        this.golesAnotados = golesAnotados;
-        this.tarjetasRojas = tarjetasRojas;
-        this.tarjetasAmarillas = tarjetasAmarillas;
+        this.golesAnotados = 0;
+        this.tarjetasRojas = 0;
+        this.tarjetasAmarillas = 0;
     }
 
     //Creacion de getter y setter

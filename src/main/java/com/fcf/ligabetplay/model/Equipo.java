@@ -4,6 +4,8 @@
  */
 package com.fcf.ligabetplay.model;
 
+import java.util.ArrayList;
+
 public class Equipo {
 
     String nombre;
@@ -14,12 +16,14 @@ public class Equipo {
     int GF;
     int GC;
     int TP;
+    static ArrayList<Jugador> jugadores = new ArrayList<>();
+    static ArrayList<CuerpoTecnico> cuerpoTecnico = new ArrayList<>();
+    static ArrayList<CuerpoMedico> cuerpoMedico = new ArrayList<>();
 
-//Crea uno vacio
+    //Crea uno vacio
     public Equipo() {
     }
 
-    
     public Equipo(String nombre, int PJ, int PG, int PP, int PE, int GF, int GC, int TP) {
         this.nombre = nombre;
         this.PJ = PJ;
@@ -94,6 +98,31 @@ public class Equipo {
     public void setTP(int TP) {
         this.TP = TP;
     }
+
+    public ArrayList<Jugador> getJugadores() {
+        return jugadores;
+    }
+
+    public ArrayList<CuerpoTecnico> getCuerpoTecnico() {
+        return cuerpoTecnico;
+    }
+
+    public ArrayList<CuerpoMedico> getCuerpoMedico() {
+        return cuerpoMedico;
+    }
+
+    public void addJugador(Jugador jugador) {
+        jugadores.add(jugador);
+    }
+
+    public void addCuerpoTecnico(CuerpoTecnico miembroTecnico) {
+        cuerpoTecnico.add(miembroTecnico);
+    }
+
+    public void addCuerpoMedico(CuerpoMedico miembroMedico) {
+        cuerpoMedico.add(miembroMedico);
+    }
+
     
     public void updateStats(int golesFavor, int golesContra) {
         this.PJ++;
