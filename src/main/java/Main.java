@@ -26,7 +26,7 @@ public class Main {
                   case 2 -> Ligabetplay.registroPlantel(sc);
                   case 3 -> Ligabetplay.registrarFechas(sc);
                   case 4 -> Ligabetplay.generarReportes();
-             //     case 5 -> Ligabetplay.mostrarPlantillaEquipo();  
+                  case 5 -> Ligabetplay.mostrarTablaJugadores(sc);
                   case 6 -> System.out.println("Finalizando Programa");
                   default -> System.out.println("Seleccione una opcion valida");
               }

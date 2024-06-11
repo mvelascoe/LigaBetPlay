@@ -1,6 +1,7 @@
 package com.fcf.ligabetplay.model;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Ligabetplay {
@@ -188,52 +189,59 @@ public class Ligabetplay {
         System.out.println("Registro de partidos para la fecha " + fecha + " finalizado.");
     }
 
+
     public static void registrarFecha(Scanner sc, String fecha) {
         listarEquipos();
-
+    
         System.out.print("Seleccione el numero del equipo local: ");
         int localIndex = sc.nextInt();
+        sc.nextLine(); 
         Equipo local = equipos.get(localIndex - 1);
-
-
+    
         System.out.print("Seleccione el numero del equipo visitante: ");
         int visitanteIndex = sc.nextInt();
+        sc.nextLine(); 
         Equipo visitante = equipos.get(visitanteIndex - 1);
-
+    
         System.out.print("Ingrese los goles del equipo local: ");
         int golesLocal = sc.nextInt();
+        sc.nextLine(); 
 
+        registrarGoles(sc, local, golesLocal);
+    
         System.out.println("El equipo local tuvo alguna tarjeta o penalización (y/n)?");
-        sc.nextLine();
         String tienePenalizacionLocal = sc.nextLine();
         if (tienePenalizacionLocal.equalsIgnoreCase("y")) {
             registrarTarjetas(sc, local);
         }
-
+    
         System.out.print("Ingrese los goles del equipo visitante: ");
         int golesVisitante = sc.nextInt();
         sc.nextLine();
 
-        System.out.println("El equipo visitante tuvo alguna penalizacion (y/n)");
-        sc.nextLine();
+        registrarGoles(sc, visitante, golesVisitante);
+    
+        System.out.println("El equipo visitante tuvo alguna penalizacion (y/n)?");
         String tienePenalizacionVisitante = sc.nextLine();
-        if (tienePenalizacionVisitante.equalsIgnoreCase("y")){
+        if (tienePenalizacionVisitante.equalsIgnoreCase("y")) {
             registrarTarjetas(sc, visitante);
         }
-
+    
         local.updateStats(golesLocal, golesVisitante);
         visitante.updateStats(golesVisitante, golesLocal);
-
+    
         Fecha nuevaFecha = new Fecha(fecha, local, visitante, golesLocal, golesVisitante);
         fechas.add(nuevaFecha);
-
+    
         System.out.println("Partido registrado correctamente.");
     }
+    
 
 
 //Registro de tarjetas
 
 public static void registrarTarjetas(Scanner sc, Equipo equipo) {
+
     System.out.println("Jugadores del equipo " + equipo.getNombre() + ":");
     int i = 1;
     for (Jugador jugador : equipo.getJugadores()) {
@@ -274,6 +282,28 @@ public static void registrarTarjetas(Scanner sc, Equipo equipo) {
     System.out.println("Registro de tarjetas cmpletado");
 }
 
+//Registro de Goles
+
+    private static void registrarGoles(Scanner sc, Equipo equipo, int goles) {
+        for (int i = 0; i < goles; i++) {
+            listarJugadores(equipo);
+            System.out.print("Seleccione el número del jugador que anotó el gol " + (i + 1) + ": ");
+            int jugadorIndex = sc.nextInt();
+            sc.nextLine();
+            Jugador jugador = equipo.getJugadores().get(jugadorIndex - 1);
+            jugador.anotarGol();
+        }
+    }
+
+//Listar Jugadores
+    private static void listarJugadores(Equipo equipo) {
+        System.out.println("Jugadores del equipo " + equipo.getNombre() + ":");
+        List<Jugador> jugadores = equipo.getJugadores();
+        for (int i = 0; i < jugadores.size(); i++) {
+            Jugador jugador = jugadores.get(i);
+            System.out.println((i + 1) + ". " + jugador.getNombre() + " " + jugador.getApellidos());
+        }
+    }
 
 
 //Seccion Reportes Menu 
@@ -403,15 +433,34 @@ public static void registrarTarjetas(Scanner sc, Equipo equipo) {
         }
     }
 
-// Muestra la plantilla completa de un equipo -  Falta terminar
 
-/*    public static void mostrarPlantillaEquipo() {
+
+    public static void mostrarTablaJugadores(Scanner sc) {
         listarEquipos();
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Seleccione el equipo del cual desea ver la plantilla: ")
+        System.out.print("Seleccione el número del equipo para ver la tabla de jugadores: ");
+        int equipoIndex = sc.nextInt();
+        sc.nextLine(); // Consume newline
 
-}*/
-     
+        if (equipoIndex < 1 || equipoIndex > equipos.size()) {
+            System.out.println("Selección inválida. Intente nuevamente.");
+            return;
+        }
+
+        Equipo equipo = equipos.get(equipoIndex - 1);
+        mostrarTablaJugadores(equipo);
+    }
+
+    public static void mostrarTablaJugadores(Equipo equipo) {
+        System.out.printf("%-25s %-20s %5s %5s %5s%n", "NOMBRE DEL JUGADOR", "POSICIÓN", "GOLES", "TA", "TR");
+        for (Jugador jugador : equipo.getJugadores()) {
+            System.out.printf("%-25s %-20s %5d %5d %5d%n",
+                    jugador.getNombre() + " " + jugador.getApellidos(),
+                    jugador.getPosicionJuego(),
+                    jugador.getGolesAnotados(),
+                    jugador.getTarjetasAmarillas(),
+                    jugador.getTarjetasRojas());
+        }
+    }
 }
  
 

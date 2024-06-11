@@ -16,9 +16,9 @@ public class Equipo {
     int GF;
     int GC;
     int TP;
-    static ArrayList<Jugador> jugadores = new ArrayList<>();
-    static ArrayList<CuerpoTecnico> cuerpoTecnico = new ArrayList<>();
-    static ArrayList<CuerpoMedico> cuerpoMedico = new ArrayList<>();
+    ArrayList<Jugador> jugadores = new ArrayList<>();
+    ArrayList<CuerpoTecnico> cuerpoTecnico = new ArrayList<>();
+    ArrayList<CuerpoMedico> cuerpoMedico = new ArrayList<>();
 
     //Crea uno vacio
     public Equipo() {

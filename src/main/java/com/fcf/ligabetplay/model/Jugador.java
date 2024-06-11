@@ -84,4 +84,8 @@ public class Jugador extends PlantelDeportivo{
         ++this.tarjetasRojas;
      }
 
+     public void anotarGol() {
+        ++this.golesAnotados;
+    }
+
 }
