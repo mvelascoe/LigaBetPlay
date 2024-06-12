@@ -48,7 +48,7 @@ public class SummaryTables {
     }
 
     public static void tablaCuerpoTecnico(Equipo equipo) {
-        System.out.printf("%-25s %-20s %5s %15s%n", "NOMBScanner scRE", "ROL", "EDAD", "NACIONALIDAD");
+        System.out.printf("%-25s %-20s %5s %15s%n", "NOMBRE", "ROL", "EDAD", "NACIONALIDAD");
         for (CuerpoTecnico tecnico : equipo.getCuerpoTecnico()) {
             System.out.printf("%-25s %-20s %5d %15s%n",
                     tecnico.getNombre() + " " + tecnico.getApellidos(),
