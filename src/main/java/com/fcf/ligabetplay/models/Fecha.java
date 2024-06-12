@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.fcf.ligabetplay.model;
+package com.fcf.ligabetplay.models;
 
 public class Fecha {
     private String fecha;

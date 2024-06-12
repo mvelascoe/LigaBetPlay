@@ -1,4 +1,4 @@
-package com.fcf.ligabetplay.model;
+package com.fcf.ligabetplay.models;
 
 public class PlantelDeportivo {
     int id;
