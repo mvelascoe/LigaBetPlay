@@ -11,8 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class JugadorRepository implements Repository<Jugador> {
-    private static final String FILE_PATH = "jugadores.json";
-    //private static final String FILE_PATH = "src/main/java/com/fcf/ligabetplay/data/jugadores.json";
+    //private static final String FILE_PATH = "jugador.json";
+    private static final String FILE_PATH = "src/main/java/com/fcf/ligabetplay/data/jugador.json";
   
     private Gson gson;
     private List<Jugador> jugadores;

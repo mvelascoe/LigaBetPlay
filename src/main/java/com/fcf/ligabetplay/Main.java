@@ -1,4 +1,4 @@
-//import com.fcf.ligabetplay.models.Ligabetplay;
+package com.fcf.ligabetplay;//import com.fcf.ligabetplay.models.Ligabetplay;
 import java.util.Scanner;
 
 import com.fcf.ligabetplay.menus.Menus;

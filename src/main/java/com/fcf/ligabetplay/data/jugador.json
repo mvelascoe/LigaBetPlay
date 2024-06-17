@@ -1,0 +1,26 @@
+[
+  {
+    "dorsal": 7,
+    "posicionJuego": "Delantero",
+    "golesAnotados": 0,
+    "tarjetasRojas": 0,
+    "tarjetasAmarillas": 0,
+    "id": 1,
+    "nombre": "Cristiano",
+    "apellidos": "Ronaldo",
+    "edad": 44,
+    "nacionalidad": "Por"
+  },
+  {
+    "dorsal": 10,
+    "posicionJuego": "Delantero",
+    "golesAnotados": 0,
+    "tarjetasRojas": 0,
+    "tarjetasAmarillas": 0,
+    "id": 2,
+    "nombre": "Lionel Andres",
+    "apellidos": "Messi",
+    "edad": 34,
+    "nacionalidad": "Argentino"
+  }
+]

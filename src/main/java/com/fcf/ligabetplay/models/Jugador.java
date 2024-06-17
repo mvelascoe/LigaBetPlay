@@ -88,4 +88,20 @@ public class Jugador extends PlantelDeportivo{
         ++this.golesAnotados;
     }
 
+    @Override
+    public String toString() {
+        return "Jugador{" +
+                "dorsal=" + dorsal +
+                ", posicionJuego='" + posicionJuego + '\'' +
+                ", fechaIngreso='" + fechaIngreso + '\'' +
+                ", golesAnotados=" + golesAnotados +
+                ", tarjetasRojas=" + tarjetasRojas +
+                ", tarjetasAmarillas=" + tarjetasAmarillas +
+                ", id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", apellidos='" + apellidos + '\'' +
+                ", edad=" + edad +
+                ", nacionalidad='" + nacionalidad + '\'' +
+                '}';
+    }
 }
